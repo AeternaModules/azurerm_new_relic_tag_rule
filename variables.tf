@@ -20,10 +20,10 @@ EOT
 
   type = map(object({
     monitor_id                         = string
-    activity_log_enabled               = optional(bool, false)
-    azure_active_directory_log_enabled = optional(bool, false)
-    metric_enabled                     = optional(bool, false)
-    subscription_log_enabled           = optional(bool, false)
+    activity_log_enabled               = optional(bool) # Default: false
+    azure_active_directory_log_enabled = optional(bool) # Default: false
+    metric_enabled                     = optional(bool) # Default: false
+    subscription_log_enabled           = optional(bool) # Default: false
     log_tag_filter = optional(object({
       action = string
       name   = string
