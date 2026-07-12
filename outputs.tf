@@ -1,3 +1,7 @@
+output "new_relic_tag_rules_id" {
+  description = "Map of id values across all new_relic_tag_rules, keyed the same as var.new_relic_tag_rules"
+  value       = { for k, v in azurerm_new_relic_tag_rule.new_relic_tag_rules : k => v.id }
+}
 output "new_relic_tag_rules_activity_log_enabled" {
   description = "Map of activity_log_enabled values across all new_relic_tag_rules, keyed the same as var.new_relic_tag_rules"
   value       = { for k, v in azurerm_new_relic_tag_rule.new_relic_tag_rules : k => v.activity_log_enabled }
