@@ -24,16 +24,16 @@ EOT
     azure_active_directory_log_enabled = optional(bool) # Default: false
     metric_enabled                     = optional(bool) # Default: false
     subscription_log_enabled           = optional(bool) # Default: false
-    log_tag_filter = optional(object({
+    log_tag_filter = optional(list(object({
       action = string
       name   = string
       value  = string
-    }))
-    metric_tag_filter = optional(object({
+    })))
+    metric_tag_filter = optional(list(object({
       action = string
       name   = string
       value  = string
-    }))
+    })))
   }))
 }
 

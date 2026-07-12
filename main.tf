@@ -8,7 +8,7 @@ resource "azurerm_new_relic_tag_rule" "new_relic_tag_rules" {
   subscription_log_enabled           = each.value.subscription_log_enabled
 
   dynamic "log_tag_filter" {
-    for_each = each.value.log_tag_filter != null ? [each.value.log_tag_filter] : []
+    for_each = each.value.log_tag_filter != null ? each.value.log_tag_filter : []
     content {
       action = log_tag_filter.value.action
       name   = log_tag_filter.value.name
@@ -17,7 +17,7 @@ resource "azurerm_new_relic_tag_rule" "new_relic_tag_rules" {
   }
 
   dynamic "metric_tag_filter" {
-    for_each = each.value.metric_tag_filter != null ? [each.value.metric_tag_filter] : []
+    for_each = each.value.metric_tag_filter != null ? each.value.metric_tag_filter : []
     content {
       action = metric_tag_filter.value.action
       name   = metric_tag_filter.value.name
